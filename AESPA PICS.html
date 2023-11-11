@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///C:/Users/demin/Downloads/aespa%20galeria.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AESPA PICS</title>
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/F-kYYSibIAAlfaV?format=jpg&name=4096x4096');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-block; /* Agrega esta línea */
+        }
+        /* Estilos para el lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            transition: background-color 0.5s ease;  /* Agrega esta línea */
+        }
+        .lightbox img {
+            margin: auto;
+            display: block;
+            width: 60%;
+            max-width: 700px;
+            border-radius: 20px;
+        }
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>AESPA GALLERY</h1>
+    <div class="image-container">
+        <img src="./AESPA PICS_files/F-kuYKDagAAQyIG" alt="Imagen 1">
+        <img src="./AESPA PICS_files/F-kuYlSbkAAvQdR" alt="Imagen 2">
+        <img src="./AESPA PICS_files/F-n0SoJawAA8a71" alt="Imagen 3">
+        <img src="./AESPA PICS_files/F-nz6EVaEAAc_W3" alt="Imagen 4">
+        <img src="./AESPA PICS_files/F-n1UsqbQAEcJPI" alt="Imagen 5">
+        <img src="https://pbs.twimg.com/media/F-n2C7DakAAVmZq?format=jpg&name=4096x4096" alt="Imagen 6" class="lightbox-image">
+        <img src="https://pbs.twimg.com/media/F-n5Z1abAAAraoQ?format=jpg&name=4096x4096" alt="Imagen 7" class="lightbox-image">
+        <!-- Agrega más imágenes aquí -->
+    </div>
+    <blockquote class="twitter-tweet"><p lang="ko" dir="ltr">강아디 추워요 🥺🥺 <a href="https://t.co/jUWcS57v8r">pic.twitter.com/jUWcS57v8r</a></p>&mdash; 일 (@onewinter_) <a href="https://twitter.com/onewinter_/status/1723182704949436839?ref_src=twsrc%5Etfw">November 11, 2023</a></blockquote> 
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- Contenedor de lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">×</span>
+        <img class="lightbox-content"></img>
+    </div>
+    <script>
+        var lightbox = document.getElementById('lightbox');
+        var images = document.querySelectorAll('.image-container img');
+        var lightboxImage = document.querySelector('.lightbox-content');
+        var close = document.querySelector('.close');
+
+        images.forEach(function(image) {
+            image.addEventListener('click', function(event) {
+                lightbox.style.display = 'block';
+                setTimeout(function() {
+                    lightbox.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                }, 1);
+                lightboxImage.src = this.src;
+            });
+        });
+
+        close.addEventListener('click', function() {
+            lightbox.style.backgroundColor = 'rgba(0,0,0,0)';
+            setTimeout(function() {
+                lightbox.style.display = 'none';
+            }, 500);
+        });
+        lightbox.addEventListener('click', function(event) {
+    // Si el clic fue dentro de la imagen, no hagas nada
+    if (event.target === lightboxImage) {
+        return;
+    }
+
+    // De lo contrario, cierra el lightbox
+    lightbox.style.display = 'none';
+});
+    </script>
+</body></html>
